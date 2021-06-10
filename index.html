@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Fruits Saga</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../libs/jquery.js"></script>
+    <script type="module" src="MyScene.js"></script> 
+    <script type="module" src="Juego.js"></script> 
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">    
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body{
+            margin: 0;
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+        .InfoJuego{
+            position: absolute;
+            left: 40px;
+           
+        }
+       
+        p{
+            font-family: 'Press Start 2P', cursive;
+            color: black;
+        }
+        span{
+            font-family: 'Luckiest Guy', cursive;
+            font-size: 30px;
+            color: #365d89;
+        }
+        #x{
+            display: none;
+        }
+        #linea{
+            display: flex;
+            align-items: center;
+        }
+        #combo{
+            display: flex;
+            align-items: center;
+        }
+        #box{
+            display: none;
+            width: 100%;
+            min-height: 30%;
+            padding: 20px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background:red ;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        #box2{
+            display: none;
+            width: 100%;
+            min-height: 30%;
+            padding: 20px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background:rgb(21, 126, 12) ;
+            text-align: center;
+            border-radius: 12px;
+        }
+        #inicio{
+            position: absolute;
+            z-index: 3;
+            width:100%;
+            height: 100%;
+            background-image:url(imgs/paginaInicio.jpg)  ;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        #opciones{
+            width: 500px;            
+            min-height: 50%;
+            padding: 20px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            background:wheat ;
+            text-align: center;
+            border-radius: 12px;   
+            
+        }
+
+        #inicio h1{
+            font-size: 50px;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        #inicio h3{
+            font-family: 'Press Start 2P', cursive;
+            margin-top: 60px;
+        }
+        #botones{
+            margin-top: 30px;
+            display:block;
+            justify-content: space-around;
+        }
+        
+        button{
+            border:0;
+            background: none;
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            border: 2px solid black;
+            padding: 14px 10px;
+            width: 200px;
+            outline: none;
+            border-radius: 24px;
+            transition: 0.25s;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        button:focus{
+            width: 280px;
+            border-color: 1px solid black;
+        }
+
+        #suma{
+            margin-left: 10px;
+            display: none;
+            color:whitesmoke;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Div which will hold the Output -->
+
+
+<div id="inicio">
+    <div id="opciones">
+        <h1>Fruits Saga</h1>
+        <h3>Seleccione un nivel</h3>
+        <div id=botones>
+
+            <button id="Nivel1">Nivel 1</button>
+            <button id="Nivel2">Nivel 2</button>
+            <button id="Nivel3">Nivel 3</button>
+            
+
+        </div>
+
+    </div>
+</div>
+
+<div id="box" >
+    <p style="font-size: 50px;">¡Has perdido!</p>
+    <p>Lo sentimos, la próxima vez será</p>
+    <p>Puntuacion final:<span id='puntFinal1' style="color: white;"></span></p>
+    <p style="color:white">Pulsa Intro para volver a elegir nivel</p>
+</div>
+
+
+<div id="box2">
+    <p style="font-size: 50px;">¡Has Ganado!</p>
+    <p>Has superado este nivel, ¡Bien Jugado!</p>
+    <p>Puntuacion final:<span id='puntFinal2' style="color: white;"></span></p>
+    <p style="color:white">Pulsa Intro para volver a elegir nivel</p>
+</div>
+
+
+
+
+<div id="WebGL-output">
+
+
+    <div class='InfoJuego' id="info">
+        <p>Movientos restantes: <span id='movs'></span></p>
+        <p id="linea">Puntuación:<span id='punt'></span><span id="suma"></span></p>
+        <p>Objetivo:<span id="obj"></span></p>
+        <p id="combo" >Combo:<span id='x'>x</span><span id='comb'></span></p>
+    </div>
+
+  
+</div>
+</body>
+</html>
